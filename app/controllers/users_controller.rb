@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
-  def new
-    @user = User.new
-  end
-
   def create
     @user = sign_up(user_params)
 
@@ -12,7 +8,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_path
     else
-      render :new
+      render "sessions/new"
     end
   end
 
