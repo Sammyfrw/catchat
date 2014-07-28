@@ -1,5 +1,6 @@
 require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
+require "my_signed_in_constraint"
 
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
@@ -8,12 +9,11 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: [:index, :show, :new, :create]
 
-  constraints Monban::Constraints::SignedIn.new do
+  constraints MySignedInConstraint.new do
     root "chatrooms#index"
   end
 
   constraints Monban::Constraints::SignedOut.new do
     get "/", to: "sessions#new"
   end
-
 end
