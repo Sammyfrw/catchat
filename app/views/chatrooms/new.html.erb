@@ -1,18 +1,18 @@
-<h2> Create a Catroom </h2>
+<h2>Create a Catroom</h2>
 
 <div class="catroom_form">
   <%= form_for @chatroom do |form| %>
+    <div>
+      <%= form.label "Catroom Name" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div>
-    <%= form.label "Catroom Name" %>
-    <%= form.text_field :name %>
-  </div>
+    <div>
+      <%= form.label "Fishkey" %>
+      <%=form.text_field :passkey %>
+      <em>A fishkey is a code for private catrooms. Share it with other cats who you want to join your room, and they'll be able to enter!</em>
+    </div>
 
-  <div>
-    <%= form.label "Fishkey" %>
-    <%=form.text_field :passkey %>
-  </div>
-
-    <%= form.submit "Create catroom" %>
+      <%= form.submit "Create catroom" %>
   <% end %>
 </div>

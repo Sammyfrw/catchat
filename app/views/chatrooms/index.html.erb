@@ -1,13 +1,13 @@
-<h2> Cat Chat Alley </h2>
-<h4> Select a catroom, lounge, have some nip, drink, whatever you want. Registered cats can make their own catroom! Just click the 'Create Catroom' button below!</h4>
+<h2>Cat Chat Alley</h2>
+<h4>Select a catroom, lounge, have some nip, drink, whatever you want. Registered cats can make their own catroom! Just click the 'Create Catroom' button below!</h4>
 
-<div class = "chatroom_list">
+<div class="chatroom_list">
   <ul>
-    <li> Public Catroom </li>
+    <%= render @chatrooms %>
   </ul>
 </div>
 
-<div class = "create_chat">
+<div class="create_chat">
   <button> Create Catroom </button>
   <%= link_to "Create Catroom", [:new, :chatroom] %>
 </div>
