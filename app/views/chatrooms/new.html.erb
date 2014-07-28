@@ -1,0 +1,18 @@
+<h2> Create a Catroom </h2>
+
+<div class="catroom_form">
+  <%= form_for @chatroom do |form| %>
+
+  <div>
+    <%= form.label "Catroom Name" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label "Fishkey" %>
+    <%=form.text_field :passkey %>
+  </div>
+
+    <%= form.submit "Create catroom" %>
+  <% end %>
+</div>

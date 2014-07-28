@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728144215) do
+ActiveRecord::Schema.define(version: 20140728154005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: true do |t|
+    t.integer  "owner_id",   null: false
+    t.integer  "user_id",    null: false
+    t.string   "name",       null: false
+    t.string   "passkey",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "chatrooms", ["owner_id"], name: "index_chatrooms_on_owner_id", using: :btree
+  add_index "chatrooms", ["user_id", "owner_id"], name: "index_chatrooms_on_user_id_and_owner_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                        null: false
