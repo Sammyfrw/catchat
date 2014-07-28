@@ -6,6 +6,5 @@ class CreateChatroom < ActiveRecord::Migration
       t.string :passkey, null: false
       t.timestamps null: false
     end
-    add_index :chatrooms, :owner_id
   end
 end
