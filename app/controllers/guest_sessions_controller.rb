@@ -2,8 +2,7 @@ class GuestSessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def create
-    username = guest_params[:username]
-    session[:username] = username
+    session[:username] = guest_params[:username]
     redirect_to root_path
   end
 

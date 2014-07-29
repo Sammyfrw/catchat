@@ -7,7 +7,7 @@ class Guest
     false
   end
 
-  def name
+  def username
     @username
   end
 end
