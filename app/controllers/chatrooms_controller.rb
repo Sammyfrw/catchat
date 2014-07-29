@@ -1,10 +1,17 @@
 class ChatroomsController < ApplicationController
+  before_filter :require_user, only: [:new, :create]
+
   def index
     @chatrooms = Chatroom.all
   end
 
   def new
-    @chatroom = Chatroom.new
+    if current_user.user?
+      @chatroom = Chatroom.new
+    else
+      flash[:alert] = "Only registered cats can make new chatrooms!"
+      redirect_to root_path
+    end
   end
 
   def create

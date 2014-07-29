@@ -1,12 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_filter :require_signed_out, only: [:new, :create]
 
   def new
-    if signed_in?
-      redirect_to root_path
-    else
-      @user = User.new
-    end
+    @user = User.new
   end
 
   def create
@@ -30,4 +27,3 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:username, :password)
   end
 end
-

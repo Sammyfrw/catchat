@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
   def user?
     true
   end
-
 end

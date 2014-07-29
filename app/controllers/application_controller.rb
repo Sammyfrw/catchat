@@ -12,4 +12,20 @@ class ApplicationController < ActionController::Base
   def current_user
     super || Guest.new(session[:username])
   end
+
+  private
+
+  def require_user
+    if !current_user.user?
+      flash[:alert] = "You don't have permission to access the page as a guest."
+      redirect_to root_path
+    end
+  end
+
+  def require_signed_out
+    if signed_in?
+      flash[:alert] = "You're already signed in!"
+      redirect_to root_path
+    end
+  end
 end
