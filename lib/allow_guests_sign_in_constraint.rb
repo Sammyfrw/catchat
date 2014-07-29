@@ -1,4 +1,4 @@
-class AllowGuestsSignInConstraint < Monban::Constraints::SignedIn
+class AllowGuestsSignInConstraint
   def matches?(request)
     request.session[:username].present? || super
   end
