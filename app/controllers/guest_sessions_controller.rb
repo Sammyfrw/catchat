@@ -2,7 +2,7 @@ class GuestSessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def create
-    session[:username] = guest_params[:username]
+    session[:username] = params[:guest_session][:username]
     redirect_to root_path
   end
 
@@ -12,8 +12,4 @@ class GuestSessionsController < ApplicationController
   end
 
   private
-
-  def guest_params
-    params.require(:guest_session).permit(:username)
-  end
 end

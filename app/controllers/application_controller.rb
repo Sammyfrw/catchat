@@ -12,5 +12,4 @@ class ApplicationController < ActionController::Base
   def current_user
     super || Guest.new(session[:username])
   end
-
 end
