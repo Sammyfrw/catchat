@@ -8,6 +8,8 @@
 </div>
 
 <div class="create_chat">
-  <button> Create Catroom </button>
-  <%= link_to "Create Catroom", [:new, :chatroom] %>
+  <% if current_user.user? %>
+    <button> Create Catroom </button>
+    <%= link_to "Create Catroom", [:new, :chatroom] %>
+  <% end %>
 </div>

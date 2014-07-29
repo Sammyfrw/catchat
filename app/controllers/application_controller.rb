@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   def signed_in?
     session[:username].present? || super
   end
+
+  def current_user
+    super || Guest.new(session[:username])
+  end
+
 end
