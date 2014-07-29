@@ -6,12 +6,7 @@ class ChatroomsController < ApplicationController
   end
 
   def new
-    if current_user.user?
-      @chatroom = Chatroom.new
-    else
-      flash[:alert] = "Only registered cats can make new chatrooms!"
-      redirect_to root_path
-    end
+    @chatroom = Chatroom.new
   end
 
   def create
