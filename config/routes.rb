@@ -1,4 +1,3 @@
-
 require "monban/constraints/signed_out"
 require "allow_guests_sign_in_constraint"
 

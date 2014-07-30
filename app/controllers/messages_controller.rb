@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.create(message_params)
-    redirect_to root_path
+    message_content = render @message
+    push_message(message_content)
   end
 
   private
@@ -12,5 +13,13 @@ class MessagesController < ApplicationController
       sender: current_user.username,
       chatroom_id: params[:chatroom_id]
     )
+  end
+
+  def push_message(content)
+    Pusher[message_params[:chatroom_id].to_s].
+      trigger(
+        'new-message',
+        {content: content}
+      )
   end
 end

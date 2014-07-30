@@ -10,3 +10,5 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'monban-generators'
 gem 'tzinfo-data'
+gem 'pusher'
+gem 'dotenv-rails', '~> 0.11.1'
