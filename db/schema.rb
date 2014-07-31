@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729180329) do
+ActiveRecord::Schema.define(version: 20140731151101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatroom_memberships", force: true do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "chatroom_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "chatrooms", force: true do |t|
     t.integer  "owner_id",   null: false

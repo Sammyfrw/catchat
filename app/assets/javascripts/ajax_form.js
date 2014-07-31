@@ -6,6 +6,10 @@ $(function(){
     $("#messages").append(data.content);
   });
 
+  channel.bind("new-user", function(data) {
+    $("#users").append(data.username);
+  });
+
   $("#new_message").submit(newChatMessage);
 
   $('.input').keypress(function (e) {
@@ -20,7 +24,6 @@ function newChatMessage(){
     $("#new_message").prop('action'),
     $("#new_message").serialize()
     )
-
   $("#message_body").val('');
 	return false;
 };
