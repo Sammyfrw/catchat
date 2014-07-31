@@ -1,13 +1,20 @@
 <h2>Welcome to <%= @chatroom.name %>!</h2>
-<div class="chat_box">
-  <ul>
-    <%= render @messages %>
-  </ul>
+<div class="chat_container">
+  <div class="chat_box">
+    <ul id="messages">
+      <%= render @messages %>
+    </ul>
+  </div>
+
+  <div class="chat_entry">
+    <%= form_for [@chatroom, @message] do |form| %>
+      <%= form.text_field :body %>
+      <%= form.submit "Send" %>
+    <% end %>
+  </div>
 </div>
 
-<div class="chat_entry">
-  <%= form_for [@chatroom, @message] do |form| %>
-    <%= form.text_area :body %>
-    <%= form.submit "Send" %>
-  <% end %>
+<div class="chat_users">
+  <h3><strong>Users</strong></h3>
 </div>
+
