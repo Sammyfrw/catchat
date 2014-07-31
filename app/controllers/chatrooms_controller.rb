@@ -8,7 +8,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    @messages = @chatroom.messages.order(created_at: :desc)
+    @messages = @chatroom.messages.order(created_at: :asc)
   end
 
   def new
