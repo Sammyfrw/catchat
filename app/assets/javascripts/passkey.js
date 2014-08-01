@@ -1,10 +1,8 @@
 $(function(){
-  $(".passkey").submit(passkey)
-  console.log("GOODBYE")
+  $(".enter-chatroom").submit(passkey)
   });
 
 function passkey() {
-  console.log("HELLO")
   var round = 1;
   var passkeyPrompt = prompt(window.CHATROOM);
   while (round < 3) {
