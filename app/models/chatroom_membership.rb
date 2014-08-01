@@ -5,4 +5,9 @@ class ChatroomMembership < ActiveRecord::Base
   def unsubscribe
     destroy
   end
+
+  def user
+    super || Guest.new(session[:username])
+  end
+
 end

@@ -7,9 +7,14 @@ $(function(){
     $("#messages").append(data.content);
   });
 
-  channel.bind("update-room-memberships", function(data) {
+  channel.bind("update-users", function(data) {
    $("#users").html(data.content);
     console.log("HTML!!!!")
+  });
+
+  channel.bind("new-guests"), function(data) {
+    $("#guests").html(data.content);
+    console.log("GUEST");
   });
 
   $("#new_message").submit(newChatMessage);

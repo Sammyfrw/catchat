@@ -8,4 +8,8 @@ class Guest
   def user?
     false
   end
+
+  def id
+    false
+  end
 end

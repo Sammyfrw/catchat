@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     super || Guest.new(session[:username])
   end
 
+  def user
+    super || Guest.new(session[:username])
+  end
+
   private
 
   def require_user
