@@ -3,11 +3,14 @@ $(function(){
   var channel = pusher.subscribe(window.CHANNEL);
 
   channel.bind("new-message", function(data) {
+    console.log(data.content);
     $("#messages").append(data.content);
   });
 
-  channel.bind("new-user", function(data) {
-    $("#users").append(data.username);
+  channel.bind("update-room-memberships", function(data) {
+    console.log(data.content);
+    $("#users").html(data.content);
+    console.log("HTML!!!!")
   });
 
   $("#new_message").submit(newChatMessage);
@@ -26,4 +29,4 @@ function newChatMessage(){
     )
   $("#message_body").val('');
 	return false;
-};
+}

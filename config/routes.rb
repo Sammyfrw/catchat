@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :messages, only: [:create]
   end
+  resources :chatroom_memberships, only: [:destroy]
 
   constraints AllowGuestsSignInConstraint.new do
     root "chatrooms#index"

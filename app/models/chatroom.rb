@@ -6,4 +6,8 @@ class Chatroom < ActiveRecord::Base
 
   validates :name, presence: true
   validates :passkey, presence: true
+
+  def subscribe(user)
+    chatroom_memberships.create(user_id: user.id)
+  end
 end

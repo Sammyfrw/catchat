@@ -8,9 +8,10 @@
   <%= csrf_meta_tags %>
 
   <script>
-    window.CHANNEL = "<%= params[:id] %>"
     window.PUSHER = "<%= ENV.fetch('PUSHER_APP_KEY')%>";
   </script>
+
+  <%= content_for :javascript %>
 
 </head>
 <body>
