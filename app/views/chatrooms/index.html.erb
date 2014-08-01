@@ -7,7 +7,7 @@
 
 <div class="chatroom_list">
   <ul>
-    <%= render @chatrooms %>
+    <%= render @chatrooms, user: current_user %>
   </ul>
 </div>
 

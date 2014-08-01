@@ -3,6 +3,7 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.all
+    @user = current_user
   end
 
   def show
@@ -24,6 +25,12 @@ class ChatroomsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    chatroom = Chatroom.find(params[:id])
+    chatroom.destroy
+    redirect_to root_path
   end
 
   private

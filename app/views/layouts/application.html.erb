@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Catchat</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <script>
     window.PUSHER = "<%= ENV.fetch('PUSHER_APP_KEY')%>";
@@ -10,7 +10,7 @@
 
   <%= content_for :javascript %>
   <script src="//js.pusher.com/2.2/pusher.min.js"></script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
 
 </head>
 <body>

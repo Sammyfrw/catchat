@@ -1,15 +1,14 @@
 $(function(){
-  var pusher = new Pusher(window.PUSHER);
-  var channel = pusher.subscribe(window.CHANNEL);
+  if(window.CHANNEL){
+    var pusher = new Pusher(window.PUSHER);
+    var channel = pusher.subscribe(window.CHANNEL);
 
   channel.bind("new-message", function(data) {
-    console.log(data.content);
     $("#messages").append(data.content);
   });
 
   channel.bind("update-room-memberships", function(data) {
-    console.log(data.content);
-    $("#users").html(data.content);
+   $("#users").html(data.content);
     console.log("HTML!!!!")
   });
 
@@ -20,6 +19,7 @@ $(function(){
       $("#new_message").submit(newChatMessage);
     }
   });
+}
 });
 
 function newChatMessage(){
