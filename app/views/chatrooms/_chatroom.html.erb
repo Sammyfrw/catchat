@@ -1,6 +1,6 @@
 <script>
   window.PASSKEY = "<%= chatroom.passkey %>";
-  window.CHATROOM = "Please enter the passkey for <%= chatroom.name %>";
+  window.PASSKEY_PROMPT = "Please enter the passkey for <%= chatroom.name %>";
   window.PATH = "chatrooms/<%= chatroom.id %>"
 </script>
 
@@ -8,6 +8,6 @@
   <%= chatroom.name %>
 
   <form class="enter-chatroom">
-    <input type="button" value="Enter Chat" onClick="passkey()">
+    <input type="button" value="Enter Chat" onClick="validatePasskey()">
   </form>
 </li>
