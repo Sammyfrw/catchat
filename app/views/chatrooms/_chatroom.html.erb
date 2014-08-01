@@ -1,24 +1,13 @@
+<script>
+  window.PASSKEY = "<%= chatroom.passkey %>";
+  window.CHATROOM = "Please enter the passkey for <%= chatroom.name %>";
+  window.PATH = "chatrooms/<%= chatroom.id %>"
+</script>
+
 <li>
   <%= chatroom.name %>
 
-  <script>
-    function passkey() {
-      var round = 1;
-      var passkeyPrompt = prompt('Please Enter <%= chatroom.name %> Passkey');
-      while (round < 3) {
-        if (passkeyPrompt.toLowerCase() == <%= chatroom.passkey %>) {
-          window.open('chatrooms/<%= chatroom.id %>');
-          break;
-        }
-        else {
-          round+=1;
-          var passkeyPrompt = prompt('Password Incorrect, Please Try Again.');
-        }
-      }
-    }
-  </script>
-
-  <form>
+  <form class="passkey">
     <input type="button" value="Enter Chat" onClick="passkey()">
   </form>
 </li>
