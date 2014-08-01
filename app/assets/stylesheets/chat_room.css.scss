@@ -1,27 +1,27 @@
 div.chat_container {
-	width: 800px;
-	float: left;
-	background-color: black;
-	color: #99ff00;
-	border: 5px solid gray;
-	margin-right: 30px;
+  width: 800px;
+  float: left;
+  background-color: black;
+  color: #99ff00;
+  border: 5px solid gray;
+  margin-right: 30px;
 }
 
 .chat_box {
-	width:780px;
-	height: 500px;
-	word-break: break-all;
-	overflow-y: auto;
+  width:780px;
+  height: 500px;
+  word-break: break-all;
+  overflow-y: auto;
 }
 
 .chat_entry{
-	width: 780px;
+  width: 780px;
 }
 
 #message_body {
-	width: 635px;
+  width: 635px;
 }
 
 html {
-	background-color: silver;
+  background-color: silver;
 }

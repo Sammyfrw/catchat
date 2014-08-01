@@ -9,7 +9,7 @@ $(function(){
   $("#new_message").submit(newChatMessage);
 
   $('.input').keypress(function (e) {
-    if (e.which == 13) {
+    if (e.which === 13) {
       $("#new_message").submit(newChatMessage);
     }
   });
@@ -20,7 +20,6 @@ function newChatMessage(){
     $("#new_message").prop('action'),
     $("#new_message").serialize()
     )
-
-  $("#message_body").val('');
-	return false;
+$("#message_body").val('');
+return false;
 };
