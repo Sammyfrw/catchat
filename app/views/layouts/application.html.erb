@@ -2,16 +2,15 @@
 <html>
 <head>
   <title>Catchat</title>
-  <script src="//js.pusher.com/2.2/pusher.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <script>
     window.PUSHER = "<%= ENV.fetch('PUSHER_APP_KEY')%>";
   </script>
 
   <%= content_for :javascript %>
+  <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </head>
 <body>
@@ -24,7 +23,7 @@
       <% end %>
     <% end %>
 
-    <p><em>nyan...nyan...nyan...</em></p>
+    <p><img src="https://polyengineer.files.wordpress.com/2014/07/nyan_cat.png" alt="nyan, nyan, nyan" height="50" width="150"></p>
     <% if signed_in? %>
       <p><em>You're currently signed in as <%= current_user.username %>.</em></p>
       <%= link_to "Sign out", session_path, method: :delete %>

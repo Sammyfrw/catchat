@@ -1,8 +1,9 @@
 <% content_for :javascript do %>
-<script>
+  <script>
     window.CHANNEL = "<%= @chatroom.id %>";
-    </script>
+  </script>
 <% end %>
+
 <h2>Welcome to <%= @chatroom.name %>!</h2>
 <div class="chat_container">
   <div class="chat_box">
