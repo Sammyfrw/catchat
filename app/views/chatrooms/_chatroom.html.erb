@@ -3,22 +3,18 @@
 
   <script>
     function passkey() {
-    var numberOfGuesses = 1;
-    var passwordPrompt = prompt('Please Enter <%= chatroom.name %> Passkey',' ');
-    while (numberOfGuesses < 3) {
-    if (!passwordPrompt)
-    history.go(-1);
-    if (passwordPrompt.toLowerCase() == <%= chatroom.passkey %>) {
-    window.open('chatrooms/<%= chatroom.id %>');
-    break;
-    }
-    testV+=1;
-    var passwordPrompt =
-    prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
-    }
-    if (pass1.toLowerCase()!="password" & testV ==3)
-    history.go(-1);
-    return " ";
+      var round = 1;
+      var passkeyPrompt = prompt('Please Enter <%= chatroom.name %> Passkey');
+      while (round < 3) {
+        if (passkeyPrompt.toLowerCase() == <%= chatroom.passkey %>) {
+          window.open('chatrooms/<%= chatroom.id %>');
+          break;
+        }
+        else {
+          round+=1;
+          var passkeyPrompt = prompt('Password Incorrect, Please Try Again.');
+        }
+      }
     }
   </script>
 
