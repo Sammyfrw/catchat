@@ -29,8 +29,10 @@ class ChatroomsController < ApplicationController
 
   def destroy
     chatroom = Chatroom.find(params[:id])
-    chatroom.destroy
-    redirect_to root_path
+    if chatroom.owner_id == current_user.id
+      chatroom.destroy
+      redirect_to root_path
+    end
   end
 
   private
